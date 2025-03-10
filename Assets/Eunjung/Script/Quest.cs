@@ -11,7 +11,8 @@ namespace Eunjung
     public enum QuestType
     {
         Kill,           //설명
-        Collect         //수집
+        Collect,        //수집
+        Talk
     }
 
     public enum QuestStatus

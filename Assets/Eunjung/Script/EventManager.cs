@@ -17,6 +17,8 @@ namespace Eunjung
         /// </summary>
         public static event Action<int> OnEventCollectItem;
 
+        public static event Action<int> OnEventTalkNPC;
+
         /// <summary>
         /// 적 처치 함수
         /// </summary>
@@ -33,6 +35,11 @@ namespace Eunjung
         public static void CollectItem(int itemId)
         {
             OnEventCollectItem.Invoke(itemId);
+        }
+
+        public static void TalkNPC(int npcId)
+        {
+            OnEventTalkNPC.Invoke(npcId);
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace Eunjung
 {
@@ -39,6 +40,7 @@ namespace Eunjung
         {
             EventManager.OnEventKillEnemy += UpdateKillQuest;
             EventManager.OnEventCollectItem += UpdateCollectQuest;
+            EventManager.OnEventTalkNPC += UpdateTalkNPC;
         }
         /// <summary>
         /// 활성화 해제시 동작
@@ -47,6 +49,7 @@ namespace Eunjung
         {
             EventManager.OnEventKillEnemy -= UpdateKillQuest;
             EventManager.OnEventCollectItem -= UpdateCollectQuest;
+            EventManager.OnEventTalkNPC -= UpdateTalkNPC;
         }
 
         public void AddQuest(Quest quest)
@@ -92,6 +95,23 @@ namespace Eunjung
             }
         }
 
+        private void UpdateTalkNPC(int npcId)
+        {
+            //리스트 삭제 후 오류 방지를 위해 역순으로
+            for (int i = quests.Count - 1; i >= 0; i--)
+            {
+                Quest quest = quests[i];
+
+                if (quest.questType == QuestType.Talk && quest.targetId == npcId
+                    && quest.status == QuestStatus.Progress)
+                {
+                    quest.Prograss(1);
+                    UpdateQuestUI(quest);
+
+                }
+            }
+        }
+
         private void UpdateQuestUI(Quest quest)
         {
             string questInfo = $"{quest.title}: {quest.currentAmount}" +
@@ -102,12 +122,13 @@ namespace Eunjung
         private void HandleQuestCompleted(Quest quest)
         {
             Debug.Log($"[퀘스트 UI] 완료된 퀘스트: {quest.title}");
-
+            GameManager.instance.nums++;
             //UI 업데이트 이벤트 호출
             OnQuestCompletedUI?.Invoke(quest.id);
 
             //퀘스트 목록에서 삭제
             quests.Remove(quest);
+            GameManager.instance.StoryQuest(GameManager.instance.nums);
         }
     }
 }
