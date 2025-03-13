@@ -121,14 +121,14 @@ namespace Eunjung
 
         private void HandleQuestCompleted(Quest quest)
         {
-            Debug.Log($"[퀘스트 UI] 완료된 퀘스트: {quest.title}");
-            GameManager.instance.nums++;
             //UI 업데이트 이벤트 호출
             OnQuestCompletedUI?.Invoke(quest.id);
 
             //퀘스트 목록에서 삭제
             quests.Remove(quest);
-            GameManager.instance.StoryQuest(GameManager.instance.nums);
+            Debug.Log($"[퀘스트 UI] 완료된 퀘스트: {quest.title}");
+            //GameManager.instance.nums++;
+            //GameManager.instance.StoryQuest(GameManager.instance.nums);
         }
     }
 }

@@ -45,39 +45,39 @@ namespace Eunjung
         {
             switch (num)
             {
-                case 0:     //몬스터 퀘스트 시작 101
+                case 1:     //몬스터 퀘스트 시작 101
                     {
                         //몬스터 처치 퀘스트 추가
-                        Quest killQuest = new Quest(0, "늑대 사냥",
+                        Quest killQuest = new Quest(1, "늑대 사냥",
                             "늑대를 5마리 처치하라", QuestType.Kill, 101, 5);
                         questManager.AddQuest(killQuest);
                     }
                     break;
-                case 1:     //몬스터 퀘스트 시작 102
+                case 2:     //몬스터 퀘스트 시작 102
                     {
                         //몬스터 처치 퀘스트 추가
-                        Quest killQuest = new Quest(1, "늑대 사냥",
+                        Quest killQuest = new Quest(2, "늑대 사냥",
                             "늑대를 5마리 처치하라", QuestType.Kill, 102, 5);
                         questManager.AddQuest(killQuest);
                     }
                     break;
-                case 2:     //아이템 퀘스트 시작 201
+                case 3:     //아이템 퀘스트 시작 201
                     {
-                        Quest collectQuest = new Quest(2, "보석 수집",
+                        Quest collectQuest = new Quest(3, "보석 수집",
                             "보석을 3개 모아라", QuestType.Collect, 201, 3);
                         questManager.AddQuest(collectQuest);
                     }
                     break;
-                case 3:     //아이템 퀘스트 시작 202
+                case 4:     //아이템 퀘스트 시작 202
                     {
-                        Quest collectQuest = new Quest(3, "보석 수집",
+                        Quest collectQuest = new Quest(4, "보석 수집",
                             "보석을 3개 모아라", QuestType.Collect, 202, 3);
                         questManager.AddQuest(collectQuest);
                     }
                     break;
-                case 4:
+                case 0:
                     {
-                        Quest chatQuest = new Quest(4, "대화",
+                        Quest chatQuest = new Quest(0, "대화",
                             "NPC와 대화를 하라", QuestType.Talk, 301, 1);
                         questManager.AddQuest(chatQuest);
                     }
@@ -89,41 +89,42 @@ namespace Eunjung
         {
             switch (nums)
             {
-                case 0:     //몬스터 퀘스트 시작 101
+                case 0:
+                    {
+                        Quest chatQuest = new Quest(0, "마을 게시판 확인",
+                            "마을 게시판 확인", QuestType.Talk, 301, 1);
+                        questManager.AddQuest(chatQuest);
+                        Debug.Log("마을 게시판을 확인 해보세요!");
+                    }
+                    break;
+                case 1:     //몬스터 퀘스트 시작 101
                     {
                         //몬스터 처치 퀘스트 추가
-                        Quest killQuest = new Quest(0, "늑대 사냥",
+                        Quest killQuest = new Quest(1, "늑대 사냥",
                             "늑대를 5마리 처치하라", QuestType.Kill, 101, 5);
                         questManager.AddQuest(killQuest);
                     }
                     break;
-                case 1:     //몬스터 퀘스트 시작 102
+                case 2:     //몬스터 퀘스트 시작 102
                     {
                         //몬스터 처치 퀘스트 추가
-                        Quest killQuest = new Quest(1, "늑대 사냥",
+                        Quest killQuest = new Quest(2, "늑대 사냥",
                             "늑대를 5마리 처치하라", QuestType.Kill, 102, 5);
                         questManager.AddQuest(killQuest);
                     }
                     break;
-                case 2:     //아이템 퀘스트 시작 201
+                case 3:     //아이템 퀘스트 시작 201
                     {
-                        Quest collectQuest = new Quest(2, "보석 수집",
+                        Quest collectQuest = new Quest(3, "보석 수집",
                             "보석을 3개 모아라", QuestType.Collect, 201, 3);
                         questManager.AddQuest(collectQuest);
                     }
                     break;
-                case 3:     //아이템 퀘스트 시작 202
+                case 4:     //아이템 퀘스트 시작 202
                     {
-                        Quest collectQuest = new Quest(3, "보석 수집",
+                        Quest collectQuest = new Quest(4, "보석 수집",
                             "보석을 3개 모아라", QuestType.Collect, 202, 3);
                         questManager.AddQuest(collectQuest);
-                    }
-                    break;
-                case 4:
-                    {
-                        Quest chatQuest = new Quest(4, "대화",
-                            "NPC와 대화를 하라", QuestType.Talk, 301, 1);
-                        questManager.AddQuest(chatQuest);
                     }
                     break;
             }
